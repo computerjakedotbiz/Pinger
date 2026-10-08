@@ -85,7 +85,7 @@ async function checkStatus(){
 
 async function sendTest(){
   msg("Sending test…");
-  const { data, error } = await sb.functions.invoke("send-pings", { body: { test: DEVICE } });
+  const { data, error } = await sb.functions.invoke("dynamic-task", { body: { test: DEVICE } });
   if(error){ msg("Test failed: " + error.message + " (is the send-pings function deployed?)"); return; }
   msg(data && data.sent ? "Test sent. It should arrive in a few seconds." : "Nothing sent: " + JSON.stringify(data));
 }
