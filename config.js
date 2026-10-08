@@ -6,5 +6,5 @@
 window.PINGER_CONFIG = {
   SUPABASE_URL: "https://hciqinemuqusggbmykat.supabase.co",
   SUPABASE_ANON_KEY: "sb_publishable__rRp1t9a7YxEjOEwlvuWjA_cUnxcXTo",
-  VAPID_PUBLIC_KEY: "BFxZ6S9aBtySsBKgmJJp4WDdFo9top5EM7iuAyOARVT3QRk_ALerH3bw64r3G5E5Oc7pMlOzog1Pcfv50CGjBMo"
+  VAPID_PUBLIC_KEY: "BPRIa97q7q3L5P8ypg8dHD40MKpzNs7UlyWG1pZex9qDxAgkXgkzHyPd5rl94n4TYmgrO1hc0KSPXuuyD5li-ao"
 };

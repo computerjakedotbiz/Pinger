@@ -10,6 +10,7 @@ self.addEventListener("push", event => {
       renotify: true,
       icon: "./icon-192.png",
       badge: "./icon-192.png"
+      // (iOS ignores badge; icon comes from the installed app icon)
     })
   );
 });

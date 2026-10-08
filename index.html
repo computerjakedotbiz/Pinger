@@ -9,7 +9,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Pinger" />
 <link rel="manifest" href="./manifest.webmanifest" />
-<link rel="apple-touch-icon" href="./icon-192.png" />
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="./icon-192.png" />
 <title>Pinger</title>
 <style>
   :root{
@@ -65,6 +66,12 @@
   .day.on{background:var(--accent);color:#fff;border-color:var(--accent)}
   .sheet-actions{display:flex;gap:10px;margin-top:22px}
   .del{background:transparent;color:var(--danger);border:1px solid var(--line)}
+  .seg{display:flex;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px}
+  .seg>div{flex:1;text-align:center;padding:10px 0;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted);user-select:none}
+  .seg>div.on{background:var(--accent);color:#fff}
+  .hint{color:var(--muted);font-size:12px;margin:6px 2px 0}
+  .btn-sm{padding:8px 12px;font-size:13px}
+  #msg{color:var(--muted);font-size:12.5px;margin:-14px 2px 14px;min-height:16px}
 </style>
 </head>
 <body>
@@ -74,10 +81,12 @@
   </header>
   <div class="sub">Reminders that ping you on your own cadence 🔔</div>
 
+  <div id="msg"></div>
   <div id="list"></div>
 
   <div class="fab-bar">
     <button class="btn-ghost" id="enableBtn">Enable notifications</button>
+    <button class="btn-ghost" id="testBtn" title="Send test notification">🔔 Test</button>
     <button class="btn-primary" id="addBtn">+ New reminder</button>
   </div>
 
@@ -89,7 +98,17 @@
       <input id="fEmoji" style="flex:0 0 64px;text-align:center" maxlength="2" value="🔔" />
       <input id="fLabel" style="flex:1" placeholder="Drink water" />
     </div>
-    <div class="row">
+    <label>Schedule</label>
+    <div class="seg" id="fMode">
+      <div data-mode="random">🎲 Random</div>
+      <div data-mode="fixed">⏱ Fixed</div>
+    </div>
+    <div id="randomFields">
+      <label>Pings per day</label>
+      <input id="fPerDay" type="number" min="1" max="48" value="6" inputmode="numeric" />
+      <div class="hint">Spread at unpredictable times between From and Until. Re-rolled every day.</div>
+    </div>
+    <div class="row" id="fixedFields">
       <div>
         <label>Every</label>
         <input id="fEvery" type="number" min="1" value="60" inputmode="numeric" />
